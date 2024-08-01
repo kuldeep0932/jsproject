@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div id="result_box"></div>
-    
+
     <script>
         let name = prompt("Enter your name");
         let age = prompt("Enter your age");
         let marks = prompt("Enter your marks");
-        
-console.log(name, age, marks);
+
+        console.log(name, age, marks);
         checkmarks(name, age, marks);
-         
+
         function checkmarks(name, age, marks) {
-            
-            if( marks <= 100 && marks > 80) {
+
+            if (marks <= 100 && marks > 80) {
                 let result = document.getElementById('result_box').innerHTML = "Student Name: " + name + "<br> Student Age: " + age + "<br> Student Marks: " + marks + "<br> Grade is A";
             }
-            else if( marks <= 80 && marks > 60) {
-                alert(name + age + marks + "Grade is B");
+            else if (marks <= 80 && marks > 60) {
+                let result = document.getElementById('result_box').innerHTML = "Student Name: " + name + "<br> Student Age: " + age + "<br> Student Marks: " + marks + "<br> Grade is B";
             }
-            else if( marks <= 60 && marks > 55) {
-                alert(name + age + marks + "Grade is C");
+            else if (marks <= 60 && marks > 55) {
+                let result = document.getElementById('result_box').innerHTML = "Student Name: " + name + "<br> Student Age: " + age + "<br> Student Marks: " + marks + "<br> Grade is C";
             }
-            else if (marks <= 55 && marks > 30){
-                alert(name + age + marks + "Grade is D");
+            else if (marks <= 55 && marks > 30) {
+                let result = document.getElementById('result_box').innerHTML = "Student Name: " + name + "<br> Student Age: " + age + "<br> Student Marks: " + marks + "<br> Grade is D";
             }
-            else if(marks <= 30) {
-                alert(name + age + marks + "Grade is Fail")
+            else if (marks <= 30) {
+                let result = document.getElementById('result_box').innerHTML = "Student Name: " + name + "<br> Student Age: " + age + "<br> Student Marks: " + marks + "<br> You are Fail!";
             }
-            else{
-                alert(name, age, marks, + "error");
+            else {
+                alert("Enter valid Data !!");
             }
         }
 
     </script>
 </body>
+
 </html>
