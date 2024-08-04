@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .card-body {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(82px, 1fr));
+            gap: 6px;
+        }
+
+        .card {
+            max-width: 350px;
+            width: 100%;
+            padding: 16px;
+            border-radius: 5px;
+            backdrop-filter: blur(1px);
+            background-color: #ffffff6b;
+        }
+
+        .number,
+        .poorator {
+            padding: 20px 23px;
+            font-size: 21px;
+            transition: all .35s ease-in-out;
+        }
+
+        .number:hover,
+        .poorator:hover {
+            transition: all .35s ease-in-out;
+            backdrop-filter: brightness(5);
+            background-color: #ffffffc2;
+        }
+
+        .card-head input {
+            width: 96%;
+        }
+
+        .result_box {
+            padding: 10px 10px 10px 0px;
+            text-align: right;
+            font-size: 24px;
+            margin-bottom: 15px;
+            border: 0;
+            background: unset;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url("https://img.freepik.com/free-photo/background-gradient-lights_23-2149304976.jpg?t=st=1722802194~exp=1722805794~hmac=7fb2036fa85c93833e186a8ab49b3786f9e6d1d29bbe1d8d99d8738c0236e535&w=996");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            height: 95vh;
+        }
+
+        .number {
+            border: 0;
+            backdrop-filter: blur(4px);
+            background-color: #ffffff85;
+        }
+
+        .poorator {
+            border: 0;
+            background-color: #ffffff2e;
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="card-head">
+            <input type="text" name="result_box" id="result_box" class="result_box">
+        </div>
+        <div class="card-body">
+            <button class="poorator" onclick="clearAll()">C</button>
+            <button class="poorator" onclick="display('%')">%</button>
+            <button class="poorator" onclick="display('*')">*</button>
+            <button class="poorator" onclick="bkspace()">⌫</button>
+            <input type="button" value="7" class="number" id="number" onclick="display(7)">
+            <input type="button" value="8" class="number" id="number" onclick="display(8)">
+            <input type="button" value="9" class="number" id="number" onclick="display(9)">
+            <button class="poorator" onclick="display('-')">-</button>
+            <input type="button" value="4" class="number" id="number" onclick="display(4)">
+            <input type="button" value="5" class="number" id="number" onclick="display(5)">
+            <input type="button" value="6" class="number" id="number" onclick="display(6)">
+            <button class="poorator" onclick="display('+')">+</button>
+            <input type="button" value="1" class="number" id="number" onclick="display(1)">
+            <input type="button" value="2" class="number" id="number" onclick="display(2)">
+            <input type="button" value="3" class="number" id="number" onclick="display(3)">
+            <button class="poorator" style="grid-row: span 2;" onclick="calculate()">=</button>
+            <input type="button" value="/" class="number" id="number" onclick="display('/')">
+            <input type="button" value="0" class="number" id="number" onclick="display(0)">
+            <input type="button" value="." class="number" id="number" onclick="display('.')">
+        </div>
+    </div>
+
+    <script>
+        let result_box = document.getElementById("result_box");
+        let input_btn = document.querySelectorAll('#number');
+
+        resultEmpty();
+
+        function resultEmpty() {
+            if (result_box.value = " ") {
+                result_box.value = 0;
+            }
+            else {
+                console.log("error");
+                result_box.value = " ";
+            }
+        }
+        function calculate() {
+            let x = result_box.value;
+            let y = eval(x);
+
+            result_box.value = y;
+            return y
+
+        }
+
+        function clearAll() {
+            result_box.value = "0";
+        }
+
+        function bkspace() {
+            result_box.value = result_box.value.slice(0, -1);
+        }
+
+        document.addEventListener('keypress', function (event) {
+            let key = event.key;
+            if (key >= '0' && key <= '9' || key === '.' || key === '+' || key === '-' || key === '*' || key === '/') {
+                display(key);
+            } else if (key === 'Enter') {
+                calculate();
+            }
+        });
+        function display(val) {
+            let firstStr = result_box.value;
+
+            if (firstStr === "0" || firstStr === ".") {
+                result_box.value = val;
+            } else {
+                result_box.value += val;
+            }
+
+        }
+
+        // input_btn.addEventListener('keypress', display);
+    </script>
+</body>
+
+</html>

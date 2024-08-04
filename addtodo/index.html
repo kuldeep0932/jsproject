@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do Notes</title>
+    <style>
+        * {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  margin: 3rem auto;
+  max-width: 40rem;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+label, input {
+  margin-bottom: 0.5rem;
+  display: block;
+  width: 100%;
+}
+
+label {
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+li {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+    </style>
+</head>
+
+<body>
+    <div id="app">
+    <div>
+        <label for="goal">Goal</label>
+        <input type="text" id="goal" />
+        <button id="button" onclick="addGoal()">Add Goal</button>
+    </div>
+    <ul id="list">
+    </ul>
+</div>
+
+    <script>
+        let inputField = document.getElementById("goal");
+        let AddButton = document.getElementById("button");
+        let list = document.getElementById("list");
+
+        function addGoal() {
+            const enterNumber = inputField.value;
+            const listItems = document.createElement('li');
+
+            listItems.textContent = enterNumber;
+            list.append(listItems);
+            inputField.value = "";
+        }
+    </script>
+</body>
+
+</html>
