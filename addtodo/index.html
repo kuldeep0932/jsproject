@@ -16,45 +16,79 @@ html {
 
 body {
   margin: 0;
+  height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #app {
-  margin: 3rem auto;
-  max-width: 40rem;
-  padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin: 3rem auto;
+    max-width: 400px;
+    width: 100%;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26); */
 }
 
-label, input {
-  margin-bottom: 0.5rem;
-  display: block;
-  width: 100%;
-}
 
 label {
   font-weight: bold;
+  margin-bottom:15px;
+  display: block; 
+  text-align: center;
 }
 
-ul {
-  list-style: none;
-  margin: 1rem 0;
-  padding: 0;
+.addnote_box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-li {
-  margin: 1rem 0;
-  padding: 1rem;
-  border: 1px solid #ccc;
+.addnote_box button {
+    max-width: 97px;
+    padding: 10px 11px;
+    width: 100%;
+    background-color: #af7eeb;
+    border: 1px solid #af7eeb;
+    color: #fff;
+    font-weight: 600;
+}
+
+.addnote_box #goal {
+    padding: 10px 8px;
+    margin: 0;
+    border: 0;
+    width: 100%;
+}
+
+.card-header {
+    padding: 10px;
+    background-color: #13544a;
+    color: #fff;
+    width: 100%;
+}
+
+#list li {list-style: disc; text-wrap: wrap; margin-bottom: 10px;}
+
+#list {
+    padding: 15px 38px;
+    box-shadow: 0 0 5px #e3e3e3;
+    width: 100%;
+}
+
+#list li::marker {
+    color: #af7eeb;
 }
     </style>
 </head>
 
 <body>
     <div id="app">
-    <div>
-        <label for="goal">Goal</label>
-        <input type="text" id="goal" />
-        <button id="button" onclick="addGoal()">Add Goal</button>
+    <div class="card-header">
+        <label for="goal">TO DO Notes</label>
+        <div class="addnote_box">
+          <input type="text" id="goal" />
+          <button id="button" onclick="addGoal()"> + Add Note</button>
+        </div>
     </div>
     <ul id="list">
     </ul>
